@@ -18,6 +18,10 @@ Route::get('/', function () {
 Route::get('/login', 'LoginController@index')->name('login.form');
 Route::post('/attempt', 'LoginController@attempt')->name('login.attempt');
 Route::get('/logout', 'LoginController@logout');
-
-Route::get('/admin', 'PenggunaController@index');
+Route::middleware('cek-login')->group(function(){
+    Route::prefix('admin')->group(function() {
+        Route::get('/', 'PenggunaController@index');
+        
+    });
+});
 Route::get('/generate_password/{psw}', function($psw){echo bcrypt($psw);});

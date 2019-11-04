@@ -25,7 +25,7 @@ class LoginController extends Controller
 		if ($auth->attempt($attempts, (bool) $request->remember_me)) {
 			$user = Pengguna::where('username', $request->username)->first();
 			$request->session()->put('logged_in', [$user->id_pengguna, $user->level]);
-            return redirect()->intended('/admin');
+            return redirect()->intended('admin');
         }
 		return redirect()->back()->with(['warning' => 'Username atau Password salah']);;
 	}
