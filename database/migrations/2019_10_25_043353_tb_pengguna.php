@@ -37,6 +37,6 @@ class TbPengguna extends Migration
     public function down()
     {
         //
-		Schema::drop('tb_pengguna');
+        Schema::dropIfExists('tb_pengguna');
     }
 }
