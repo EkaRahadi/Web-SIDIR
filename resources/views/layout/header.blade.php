@@ -55,10 +55,10 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>The News Paper - News &amp; Lifestyle Magazine Template</title>
+    <title>Dinas Tenaga Kerja Kabupaten Indramayu</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="assets/images/core-img/favicon.ico">
+    <link rel="icon" href="http://disnaker.indramayukab.go.id/wp-content/uploads/2017/10/cropped-LOGO-INDRAMAYU-192x192.png">
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="assets/style.css">
@@ -68,18 +68,27 @@
 <body>
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
-
-        <!-- Top Header Area -->
-        <div class="top-header-area">
+    <div class="top-header-area">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="top-header-content d-flex align-items-center justify-content-between">
                             <!-- Logo -->
                             <div class="logo">
-                                <a href="index.html"><img src="assets/images/core-img/logo.png" alt=""></a>
+                            <a href="#"><img src="assets/images/core-img/logo.png" alt="" width="450px"></a>
                             </div>
 
+                            <!-- Login Search Area -->
+                            <div class="login-search-area d-flex align-items-center">
+                               
+                                <!-- Search Form -->
+                                <div class="search-form">
+                                    <form action="#" method="post">
+                                        <input type="search" name="search" class="form-control" placeholder="Search">
+                                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

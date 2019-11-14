@@ -43,6 +43,11 @@
 							<strong>Warning :</strong> {{ $message }}
 						</div>
 					@endif
+					@if ($message = Session::get('error'))
+						<div class="alert alert-danger" data-dismiss="alert">
+							<strong>Error :</strong> {{ $message }}
+						</div>
+					@endif
 				<form class="login100-form validate-form flex-sb flex-w" method="POST" role="form" action="{{route('login.attempt')}}">
 					{{csrf_field()}}
 					<span class="login100-form-title p-b-32">

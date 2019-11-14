@@ -36,7 +36,7 @@
                 <!-- Hero Add -->
                 <div class="col-12 col-lg-4">
                     <div class="hero-add">
-                        <a href="#"><img src="assets/images/bg-img/hero-add.gif" alt=""></a>
+                        <a href="#"><img src="assets/images/cropped-spanduk.jpg" width="400px" alt=""></a>
                     </div>
                 </div>
             </div>

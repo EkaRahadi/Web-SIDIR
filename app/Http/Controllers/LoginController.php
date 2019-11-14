@@ -27,7 +27,7 @@ class LoginController extends Controller
 			$request->session()->put('logged_in', [$user->id_pengguna, $user->level]);
             return redirect()->intended('admin');
         }
-		return redirect()->back()->with(['warning' => 'Username atau Password salah']);;
+		return redirect()->back()->with(['error' => 'Username atau Password salah']);;
 	}
 	
 	public function logout(){
