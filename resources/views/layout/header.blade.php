@@ -105,7 +105,7 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <img src="assets/images/bg-img/17.jpg" alt="Los Angeles">
+      <img src="http://disnaker.indramayukab.go.id/wp-content/uploads/2019/10/cropped-spanduk.jpg" alt="Los Angeles">
     </div>
 
     <div class="item">
