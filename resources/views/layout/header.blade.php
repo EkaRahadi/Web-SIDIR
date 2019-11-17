@@ -1,48 +1,5 @@
 <?php
-    function main_menu(){
-        $menu = App\Menu::where('status', 'a')
-            ->orderBy('urutan')
-            ->get();
-        $menus = array('items'=>array(), 'parents'=>array());
-        foreach($menu as $item){
-            $menus['items'] [$item->id_menu] = $item;
-            $menus['parents'] [$item->parent][] = $item->id_menu;
-        }
-        if($menus){return build_menu(0, $menus); }
-        return FALSE;
-    }
-    function build_menu($p, $menus){
-        $html = "";
-        if(isset($menus['parents'][$p])){
-            if($p == 0){
-                $html .= "<ul>";
-            }else{
-                $html .= "<ul class='dropdown'>";
-            }
-
-            foreach($menus['parents'][$p]  as $id_item){
-                if(!isset($menus['parents'][$id_item])){
-                    if(preg_match("/^http/", $menus['items'][$id_item]->link)){
-                        $html .= "<li><a target='_BLANK' href='".$menus['items'][$id_item]->link."'>".$menus['items'][$id_item]->nama_menu."</a></li>";
-                    }else{
-                        $html .= "<li><a href='".$menus['items'][$id_item]->link."'>".$menus['items'][$id_item]->nama_menu."</a></li>";
-                    }
-                }
-                if(isset($menus['parents'][$id_item])){
-                    if(preg_match("/^http/", $menus['items'][$id_item]->link)){
-                        $html .= "<li><a target='_BLANK' href='".$menus['items'][$id_item]->link."'>".$menus['items'][$id_item]->nama_menu."</a>";
-                    }else{
-                        $html .= "<li><a href='".$menus['items'][$id_item]->link."'>".$menus['items'][$id_item]->nama_menu."</a>";
-                    }
-
-                    $html .= build_menu($id_item, $menus);
-                    $html .= "</li>";
-                }
-            }
-            $html .= "</ul>";
-        }
-        return $html;
-    }
+    $main_menu = \App\Console\Helper::main_menu();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +15,7 @@
     <title>Dinas Tenaga Kerja Kabupaten Indramayu</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="http://disnaker.indramayukab.go.id/wp-content/uploads/2017/10/cropped-LOGO-INDRAMAYU-192x192.png">
+    <link rel="icon" href="assets/images/nav.png">
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="assets/style.css">
@@ -122,7 +79,7 @@
 
                             <!-- Nav Start -->
                             <div class="classynav">
-                                {!! main_menu() !!}
+                                {!! $main_menu !!}
                             </div>
                             <!-- Nav End -->
                         </div>
@@ -132,3 +89,48 @@
         </div>
     </header>
     <!-- ##### Header Area End ##### -->
+    
+    <!-- ##### Hero Area Start ##### -->
+    <div class="hero-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-lg-8">
+                    <!-- Breaking News Widget -->
+                    <div class="breaking-news-area d-flex align-items-center">
+                        <div class="news-title">
+                            <p>Berita Terbaru</p>
+                        </div>
+                        <div id="breakingNewsTicker" class="ticker">
+                            <ul>
+                                <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
+                                <li><a href="#">Welcome to Colorlib Family.</a></li>
+                                <li><a href="#">Nam eu metus sitsit amet, consec!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Breaking News Widget -->
+                    <div class="breaking-news-area d-flex align-items-center mt-15">
+                        <div class="news-title title2">
+                            <p>Mancanegara</p>
+                        </div>
+                        <div id="internationalTicker" class="ticker">
+                            <ul>
+                                <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
+                                <li><a href="#">Welcome to Colorlib Family.</a></li>
+                                <li><a href="#">Nam eu metus sitsit amet, consec!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Add -->
+                <div class="col-12 col-lg-4">
+                    <div class="hero-add">
+                        <a href="#"><img src="assets/images/cropped-spanduk.jpg" width="400px" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Hero Area End ##### -->
