@@ -20,7 +20,9 @@ Route::get('/logout', 'LoginController@logout');
 Route::middleware('cek-login')->group(function(){
     Route::prefix('admin')->group(function() {
         Route::get('/', 'PenggunaController@index');
+        Route::get('/data_pengguna', 'PenggunaController@data_pengguna')->name('data_pengguna');
         Route::get('/menu', 'PenggunaController@olah_menu');
+        Route::get('/halaman', 'PenggunaController@olah_halaman');
         
     });
 });

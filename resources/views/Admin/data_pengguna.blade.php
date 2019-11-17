@@ -1,5 +1,5 @@
 @extends('Admin.layouts.app')
-@section('title', 'HALAMAN | DISNAKER INDRAMAYU')
+@section('title', 'DATA PENGGUNA | DISNAKER INDRAMAYU')
 @section('content')
 
 <div class="breadcrumbs">
@@ -8,7 +8,7 @@
                     <div class="col-sm-4">
                         <div class="page-header float-left">
                             <div class="page-title">
-                                <h1>Halaman</h1>
+                                <h1>Data Pengguna</h1>
                             </div>
                         </div>
                     </div>
@@ -16,7 +16,7 @@
                         <div class="page-header float-right">
                             <div class="page-title">
                                 <ol class="breadcrumb text-right">
-                                    <li><a href="#">Halaman</a></li>
+                                    <li><a href="#">Data Pengguna</a></li>
                                 </ol>
                             </div>
                         </div>

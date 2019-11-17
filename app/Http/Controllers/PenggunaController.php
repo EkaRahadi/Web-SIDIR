@@ -13,5 +13,13 @@ class PenggunaController extends Controller
 		return view('Admin.menu');
 	
 	}
+	public function olah_halaman(){
+		return view('Admin.halaman');
+	
+	}
+	public function data_pengguna(){
+		return view('Admin.data_pengguna');
+	
+	}
 }
 	
