@@ -2,6 +2,28 @@
 @section('title', 'ADMINISTRATOR | DISNAKER INDRAMAYU')
 @section('content')
 
+<div class="breadcrumbs">
+            <div class="breadcrumbs-inner">
+                <div class="row m-0">
+                    <div class="col-sm-4">
+                        <div class="page-header float-left">
+                            <div class="page-title">
+                                <h1>Dashboard</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="page-header float-right">
+                            <div class="page-title">
+                                <ol class="breadcrumb text-right">
+                                    <li><a href="#">Dashboard</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
  <div class="animated fadeIn">
                 <!-- Widgets  -->
                 <div class="row">
@@ -15,7 +37,7 @@
                                     <div class="stat-content">
                                         <div class="text-left dib">
                                             <div class="stat-text"><span class="count">23569</span></div>
-                                            <div class="stat-heading">User</div>
+                                            <div class="stat-heading">Jumlah User</div>
                                         </div>
                                     </div>
                                 </div>
@@ -33,7 +55,7 @@
                                     <div class="stat-content">
                                         <div class="text-left dib">
                                             <div class="stat-text"><span class="count">3435</span></div>
-                                            <div class="stat-heading">Berita</div>
+                                            <div class="stat-heading">Jumlah Berita</div>
                                         </div>
                                     </div>
                                 </div>
@@ -46,12 +68,12 @@
                             <div class="card-body">
                                 <div class="stat-widget-five">
                                     <div class="stat-icon dib flat-color-3">
-                                        <i class="pe-7s-browser"></i>
+                                        <i class="pe-7s-bell"></i>
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
                                             <div class="stat-text"><span class="count">349</span></div>
-                                            <div class="stat-heading">Halaman</div>
+                                            <div class="stat-heading">Berita Penting</div>
                                         </div>
                                     </div>
                                 </div>
@@ -59,5 +81,22 @@
                         </div>
                     </div>
             </div>
+            <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="stat-widget-five">
+                                    <div class="stat-icon dib flat-color-3">
+                                        <i class="pe-7s-browser"></i>
+                                    </div>
+                                    <div class="stat-content">
+                                        <div class="text-left dib">
+                                            <div class="stat-text"><span class="count">349</span></div>
+                                            <div class="stat-heading">Pelaporan Warga</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 </div>
 @endsection
