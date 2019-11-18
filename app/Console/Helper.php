@@ -45,5 +45,9 @@ class Helper{
         }
         return $html;
     }
+
+    static function toParentName($parent){
+        return \app\Menu::findOrfail($parent)->nama_menu;
+    }
 }
 ?>

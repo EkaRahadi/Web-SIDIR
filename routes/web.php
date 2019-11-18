@@ -22,8 +22,9 @@ Route::middleware('cek-login')->group(function(){
         Route::get('/', 'PenggunaController@index');
         Route::get('/data_pengguna', 'PenggunaController@data_pengguna')->name('data_pengguna');
         Route::get('/menu', 'PenggunaController@olah_menu');
+        Route::get('/tambah_menu','PenggunaController@tambah_menu')->name('tambah_menu');
         Route::get('/halaman', 'PenggunaController@olah_halaman');
-        
+
     });
 });
 
