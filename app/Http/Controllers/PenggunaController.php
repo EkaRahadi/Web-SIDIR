@@ -8,22 +8,41 @@ use Illuminate\Http\Request;
 class PenggunaController extends Controller
 {
 	public function index(){
-		return view('Admin.dashboard');
+		$data['judul'] = "Dashboard";
+		$data['sub'] = "";
+		return view('Admin.dashboard', $data);
 	}
 	public function olah_menu(){
+		$data['judul'] = "Data Menu";
+		$data['sub'] = "
+						<li><a href='/admin/menu'>Data Menu</a></li>
+						";
 		$data['menu'] = Menu::all();
 		return view('Admin.menu', $data);
 	
 	}
 	public function tambah_menu(){
-		return view('Admin.tambah_menu');
+		$data['judul'] = "Data Menu";
+		$data['sub'] = "
+						<li><a href='/admin/menu'>Data Menu</a></li>
+						<li><a href='/admin/tambah_menu'>Tambah Menu</a></li>
+						";
+		return view('Admin.tambah_menu', $data);
 	}
 	public function olah_halaman(){
-		return view('Admin.halaman');
+		$data['judul'] = "Data Halaman";
+		$data['sub'] = "
+						<li><a href='/admin/halaman'>Data Halaman</a></li>
+						";
+		return view('Admin.halaman', $data);
 	
 	}
 	public function data_pengguna(){
-		return view('Admin.data_pengguna');
+		$data['judul'] = "Data Pengguna";
+		$data['sub'] = "
+						<li><a href='/admin/data_pengguna'>Data Pengguna</a></li>
+						";
+		return view('Admin.data_pengguna', $data);
 	
 	}
 

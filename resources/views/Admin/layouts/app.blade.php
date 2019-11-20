@@ -36,15 +36,15 @@
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="/admin"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                    <li @if( str_replace(url('/'), '', url()->current()) == '/admin') class="active" @endif>
+                        <a href="/admin"><i class="menu-icon fa fa-laptop"></i>Dashboard</a>
                         
                     </li>
-                    <li>
+                    <li @if( str_replace(url('/'), '', url()->current()) == '/admin/data_pengguna') class="active" @endif>
                         <a href="{{route('data_pengguna')}}"> <i class="menu-icon fa fa-users"></i>Data Pengguna</a>
                         
                     </li>
-                    <li class="menu-item-has-children dropdown">
+                    <li class="menu-item-has-children dropdown  @if( str_replace(url('/'), '', url()->current()) == '/admin/halaman' || str_replace(url('/'), '', url()->current()) == '/admin/menu') active @endif">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Konfigurasi Aplikasi</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-pagelines"></i><a href="/admin/halaman">Kelola Halaman</a></li>
@@ -113,7 +113,7 @@
                             <div class="dropdown-menu" aria-labelledby="message">
                                 <p class="red">You have 4 Mails</p>
                                 <a class="dropdown-item media" href="#">
-                                    <span class="photo media-left"><img alt="avatar" src="assets/images/avatar/1.jpg"></span>
+                                    <span class="photo media-left"><img alt="avatar" src="{!! asset('assets/images/avatar/1.jpg') !!}"></span>
                                     <div class="message media-body">
                                         <span class="name float-left">Jonathan Smith</span>
                                         <span class="time float-right">Just now</span>
@@ -121,7 +121,7 @@
                                     </div>
                                 </a>
                                 <a class="dropdown-item media" href="#">
-                                    <span class="photo media-left"><img alt="avatar" src="assets/images/avatar/2.jpg"></span>
+                                    <span class="photo media-left"><img alt="avatar" src="{!! asset('assets/images/avatar/1.jpg') !!}"></span>
                                     <div class="message media-body">
                                         <span class="name float-left">Jack Sanders</span>
                                         <span class="time float-right">5 minutes ago</span>
@@ -129,7 +129,7 @@
                                     </div>
                                 </a>
                                 <a class="dropdown-item media" href="#">
-                                    <span class="photo media-left"><img alt="avatar" src="assets/images/avatar/3.jpg"></span>
+                                    <span class="photo media-left"><img alt="avatar" src="{!! asset('assets/images/avatar/1.jpg') !!}"></span>
                                     <div class="message media-body">
                                         <span class="name float-left">Cheryl Wheeler</span>
                                         <span class="time float-right">10 minutes ago</span>
@@ -137,7 +137,7 @@
                                     </div>
                                 </a>
                                 <a class="dropdown-item media" href="#">
-                                    <span class="photo media-left"><img alt="avatar" src="assets/images/avatar/4.jpg"></span>
+                                    <span class="photo media-left"><img alt="avatar" src="{!! asset('assets/images/avatar/1.jpg') !!}"></span>
                                     <div class="message media-body">
                                         <span class="name float-left">Rachel Santos</span>
                                         <span class="time float-right">15 minutes ago</span>
@@ -150,7 +150,7 @@
 
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="assets/images/admin.jpg" alt="User Avatar">
+                            <img class="user-avatar rounded-circle" src="{!! asset('assets/images/avatar/1.jpg') !!}" alt="User Avatar">
                         </a>
 
                         <div class="user-menu dropdown-menu">
@@ -167,6 +167,31 @@
                 </div>
             </div>
         </header>
+        
+<div class="breadcrumbs">
+            <div class="breadcrumbs-inner">
+                <div class="row sm-0">
+                    <div class="col-sm-4">
+                        <div class="page-header float-left">
+                            <div class="page-title">
+                                <h1>{{$judul}}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="page-header float-right">
+                            <div class="page-title">
+                                <ol class="breadcrumb text-right">
+                                    <li><a href="/admin">Dashboard</a></li>
+                                    {!! $sub !!}
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="content">
             <!-- Animated -->
            @yield('content')
