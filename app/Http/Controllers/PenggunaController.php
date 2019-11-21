@@ -45,6 +45,14 @@ class PenggunaController extends Controller
 		return view('Admin.data_pengguna', $data);
 	
 	}
+	public function kelola_berita(){
+		$data['judul'] = "Kelola Berita";
+		$data['sub'] = "
+						<li><a href='/admin/kelola_berita'>Kelola Berita</a></li>
+						";
+		return view('Admin.kelola_berita', $data);
+	
+	}
 
 }
 	

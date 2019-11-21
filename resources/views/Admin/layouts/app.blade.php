@@ -54,7 +54,7 @@
                     </li>
                    
                    <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Kelola Berita</a>
+                        <a href="{{route('kelola_berita')}}" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Kelola Berita</a>
                     </li>
 
                    
