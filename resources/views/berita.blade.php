@@ -1,49 +1,4 @@
 @include('layout.header')
-    <!-- ##### Hero Area Start ##### -->
-    <div class="hero-area">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-12 col-lg-8">
-                    <!-- Breaking News Widget -->
-                    <div class="breaking-news-area d-flex align-items-center">
-                        <div class="news-title">
-                            <p>Breaking News</p>
-                        </div>
-                        <div id="breakingNewsTicker" class="ticker">
-                            <ul>
-                                <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-                                <li><a href="#">Welcome to Colorlib Family.</a></li>
-                                <li><a href="#">Nam eu metus sitsit amet, consec!</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Breaking News Widget -->
-                    <div class="breaking-news-area d-flex align-items-center mt-15">
-                        <div class="news-title title2">
-                            <p>International</p>
-                        </div>
-                        <div id="internationalTicker" class="ticker">
-                            <ul>
-                                <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-                                <li><a href="#">Welcome to Colorlib Family.</a></li>
-                                <li><a href="#">Nam eu metus sitsit amet, consec!</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hero Add -->
-                <div class="col-12 col-lg-4">
-                    <div class="hero-add">
-                        <a href="#"><img src="assets/images/cropped-spanduk.jpg" width="400px" alt=""></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ##### Hero Area End ##### -->
-
     <!-- ##### Featured Post Area Start ##### -->
     <div class="featured-post-area">
         <div class="container">
@@ -415,7 +370,7 @@
                 <!-- Editors Pick -->
                 <div class="col-12 col-md-7 col-lg-9">
                     <div class="section-heading">
-                        <h6>Editor’s Pick</h6>
+                        <h6>Jurnalis</h6>
                     </div>
 
                     <div class="row">
@@ -527,7 +482,7 @@
                 <!-- World News -->
                 <div class="col-12 col-md-5 col-lg-3">
                     <div class="section-heading">
-                        <h6>World News</h6>
+                        <h6>Berita Mancanegara</h6>
                     </div>
 
                     <!-- Single Post -->

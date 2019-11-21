@@ -2,80 +2,57 @@
 
 namespace App\Http\Controllers;
 
+use \App\Menu;
 use Illuminate\Http\Request;
-use App\Menu;
 
 class PenggunaController extends Controller
 {
 	public function index(){
-		return view('Admin.dashboard');
+		$data['judul'] = "Dashboard";
+		$data['sub'] = "";
+		return view('Admin.dashboard', $data);
+	}
+	public function olah_menu(){
+		$data['judul'] = "Data Menu";
+		$data['sub'] = "
+						<li><a href='/admin/menu'>Data Menu</a></li>
+						";
+		$data['menu'] = Menu::all();
+		return view('Admin.menu', $data);
+	
+	}
+	public function tambah_menu(){
+		$data['judul'] = "Data Menu";
+		$data['sub'] = "
+						<li><a href='/admin/menu'>Data Menu</a></li>
+						<li><a href='/admin/tambah_menu'>Tambah Menu</a></li>
+						";
+		return view('Admin.tambah_menu', $data);
+	}
+	public function olah_halaman(){
+		$data['judul'] = "Data Halaman";
+		$data['sub'] = "
+						<li><a href='/admin/halaman'>Data Halaman</a></li>
+						";
+		return view('Admin.halaman', $data);
+	
+	}
+	public function data_pengguna(){
+		$data['judul'] = "Data Pengguna";
+		$data['sub'] = "
+						<li><a href='/admin/data_pengguna'>Data Pengguna</a></li>
+						";
+		return view('Admin.data_pengguna', $data);
+	
+	}
+	public function kelola_berita(){
+		$data['judul'] = "Kelola Berita";
+		$data['sub'] = "
+						<li><a href='/admin/kelola_berita'>Kelola Berita</a></li>
+						";
+		return view('Admin.kelola_berita', $data);
+	
 	}
 
-	public function show()
-	{
-		$menu = Menu::all();
-
-		return view('Admin.menu_list', compact('menu'));
-	}
-
-	public function create(Request $request)
-    {
-        /*
-        parent, nama_menu, link, status
-        */
-        $menu_create = array(
-            'parent' => $request->parent,
-            'nama_menu' => $request->nama_menu,
-            'link' => $request->link,
-            'status' => $request->status,
-            'urutan' => $request->urutan
-        );
-
-        $menu = Menu::all();
-        if(Menu::create($menu_create))
-        {
-            return view('Admin.menu_list', compact('menu'));
-        }
-        else
-        {
-            return view('Admin.create_menu')->with(['message'=> 'Gagal membuat menu !']);
-        }
-    }
-
-    //Edit Menu
-    public function edit(Request $request)
-    {
-        $id = $request->id_menu;   
-        $update_menu = Menu::findOrFail($id);
-        
-        if($menu)
-        {
-            $update_menu->update($request->all());
-            $menu = Menu::all();
-            return view('Admin.menu_list', compact('menu'));
-        }
-        else
-        {
-            $menu = Menu::all();
-            return view('Admin.menu_list', compact('menu'));
-        }
-    }
-
-    //Delete Menu
-    public function destroy(Request $requets)
-    {
-        $id = $request->id_menu;
-
-        $deleteMenu = Menu::destroy($id);
-        $menu = Menu::get();
-
-        if($deleteMenu)
-        {
-            return view('Admin.menu_list', compact('menu'));
-        }
-        else
-        {
-            return view('Admin.menu_list', compact('menu'))->with(['message' => 'Gagal delete menu']);
-        }
-    }
 }
+	

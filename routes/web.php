@@ -20,11 +20,12 @@ Route::get('/logout', 'LoginController@logout');
 Route::middleware('cek-login')->group(function(){
     Route::prefix('admin')->group(function() {
         Route::get('/', 'PenggunaController@index');
-        Route::get('/menu', 'PenggunaController@show'); //view untuk show all list menu
-        Route::post('/menu/tambah', 'PenggunaController@create'); //untuk button tambah menu
-        Route::post('/menu/edit', 'PenggunaController@edit'); //untuk button edit menu
-        Route::post('/menu/hapus', 'PenggunaController@destroy'); //untuk button delete menu
-        
+        Route::get('/data_pengguna', 'PenggunaController@data_pengguna')->name('data_pengguna');
+        Route::get('/menu', 'PenggunaController@olah_menu');
+        Route::get('/tambah_menu','PenggunaController@tambah_menu')->name('tambah_menu');
+        Route::get('/halaman', 'PenggunaController@olah_halaman');
+        Route::get('/kelola_berita', 'PenggunaController@kelola_berita')->name('kelola_berita');
+
     });
 });
 
