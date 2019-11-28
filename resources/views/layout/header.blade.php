@@ -61,7 +61,7 @@
     <link rel="icon" href="http://disnaker.indramayukab.go.id/wp-content/uploads/2017/10/cropped-LOGO-INDRAMAYU-192x192.png">
 
     <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="{{url('/assets/style.css')}}">
 
 </head>
 
@@ -75,7 +75,7 @@
                         <div class="top-header-content d-flex align-items-center justify-content-between">
                             <!-- Logo -->
                             <div class="logo">
-                            <a href="#"><img src="assets/images/core-img/logo.png" alt="" width="450px"></a>
+                            <a href="#"><img src="{{url('/assets/images/core-img/logo.png')}}" alt="" width="450px"></a>
                             </div>
 
                             <!-- Login Search Area -->
@@ -104,7 +104,7 @@
 
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.html"><img src="assets/images/core-img/logo.png" alt=""></a>
+                            <a href="index.html"><img src="{{url('/assets/images/core-img/logo.png')}}" alt=""></a>
                         </div>
 
                         <!-- Navbar Toggler -->
@@ -206,7 +206,7 @@
                 <!-- Hero Add -->
                 <div class="col-12 col-lg-4">
                     <div class="hero-add">
-                        <a href="#"><img src="assets/images/cropped-spanduk.jpg" width="400px" alt=""></a>
+                        <a href="#"><img src="{{url('assets/images/cropped-spanduk.jpg')}}" width="400px" alt=""></a>
                     </div>
                 </div>
             </div>

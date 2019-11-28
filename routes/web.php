@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'MainController@index');
+Route::get('/berita/{id}/baca', 'MainController@read_berita');
 
 Route::get('/login', 'LoginController@index')->name('login.form');
 Route::post('/attempt', 'LoginController@attempt')->name('login.attempt');

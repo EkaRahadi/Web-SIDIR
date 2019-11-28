@@ -20,6 +20,7 @@ class CreateTableBerita extends Migration
             $table->integer('views');
             $table->text('isi_berita');
             $table->char('foto', 100);
+            $table->char('yt', 100);
             $table->enum('status',['YA', 'TIDAK']);
             $table->timestamps();
         });
