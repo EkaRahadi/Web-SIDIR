@@ -27,6 +27,7 @@ class PenggunaController extends Controller
 						<li><a href='/admin/menu'>Data Menu</a></li>
 						<li><a href='/admin/tambah_menu'>Tambah Menu</a></li>
 						";
+		$data['menu'] = Menu::all();
 		return view('Admin.tambah_menu', $data);
 	}
 	public function olah_halaman(){
@@ -52,6 +53,14 @@ class PenggunaController extends Controller
 						";
 		return view('Admin.kelola_berita', $data);
 	
+	}
+	public function proses_tambah_menu(Request $request){
+		$menu = array("parent"=>$request->parent,
+						"nama_menu"=>$request->nama_menu,
+						"link"=>$request->link,
+						"status"=>$request->aktivasi,
+						"urutan"=>$request->urutan);
+		$tmbh_menu = Menu::create($menu);
 	}
 
 	public function tambah_berita(){
