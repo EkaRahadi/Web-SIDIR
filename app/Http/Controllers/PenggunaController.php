@@ -63,5 +63,15 @@ class PenggunaController extends Controller
 		$tmbh_menu = Menu::create($menu);
 	}
 
+	public function tambah_berita(){
+		$data['judul'] = "Tambah Berita";
+		$data['sub'] = "
+						<li><a href='/admin/kelola_berita'>Kelola Berita</a></li>
+						<li><a href='/admin/tambah_berita'>Tambah Berita</a></li>
+						";
+		return view('Admin.tambah_berita', $data);
+	
+	}
+
 }
 	

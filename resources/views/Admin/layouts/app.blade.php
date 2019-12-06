@@ -12,7 +12,8 @@
 
     <link rel="apple-touch-icon" href="http://disnaker.indramayukab.go.id/wp-content/uploads/2017/10/cropped-LOGO-INDRAMAYU-192x192.png">
     <link rel="shortcut icon" href="http://disnaker.indramayukab.go.id/wp-content/uploads/2017/10/cropped-LOGO-INDRAMAYU-192x192.png">
-
+    
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
@@ -75,14 +76,8 @@
             <div class="top-right">
                 <div class="header-menu">
                     <div class="header-left">
-                        <button class="search-trigger"><i class="fa fa-search"></i></button>
-                        <div class="form-inline">
-                            <form class="search-form">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
-                                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
-                            </form>
-                        </div>
-
+                        <a href="/" target="_BLANK" alt=""><i class="fas fa-external-link-alt" alt="Lihat WEB"></i></a>
+                        
                         <div class="dropdown for-notification">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-bell"></i>
