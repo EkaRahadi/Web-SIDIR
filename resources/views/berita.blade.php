@@ -11,17 +11,17 @@
                         <div class="col-12 col-lg-7">
                             <div class="single-blog-post featured-post">
                                 <div class="post-thumb">
-                                    <a href="\berita\{{$item->id_berita}}\baca"><img src="{!! asset('assets/images/berita/'.$item->foto) !!}" alt=""></a>
+                                    <a href="\berita\{{$item->judul_seo}}\baca"><img src="{!! asset('assets/images/berita/'.$item->foto) !!}" alt=""></a>
                                 </div>
                                 <div class="post-data">
-                                    <a href="#" class="post-catagory">Finance</a>
-                                    <a href="\berita\{{$item->id_berita}}\baca" class="post-title">
+                                    <a href="#" class="post-catagory">{{$item->kategori->kategori}}</a>
+                                    <a href="\berita\{{$item->judul_seo}}\baca" class="post-title">
                                         <h6>{{$item->judul_berita}}</h6>
                                     </a>
                                     <div class="post-meta">
                                         <p class="post-author">By <a href="#">{{$item->post->nama}}</a></p>
                                         <p class="post-excerp">
-                                        {!! substr($item->isi_berita, 0, 300) !!}.... <a href="#">Selanjutnya</a>
+                                        {!! substr($item->isi_berita, 0, 300) !!}.... <a href="\berita\{{$item->judul_seo}}\baca">Selanjutnya</a>
                                         </p>
                                         <!-- Post Like & Post Comment -->
                                         <div class="d-flex align-items-center">
@@ -41,12 +41,12 @@
                             <!-- Single Featured Post -->
                             <div class="single-blog-post featured-post-2">
                                 <div class="post-thumb">
-                                    <a href="\berita\{{$item->id_berita}}\baca"><img src="{!! asset('assets/images/berita/'.$item->foto) !!}" alt=""></a>
+                                    <a href="\berita\{{$item->judul_seo}}\baca"><img src="{!! asset('assets/images/berita/'.$item->foto) !!}" alt=""></a>
                                 </div>
                                 <div class="post-data">
-                                    <a href="#" class="post-catagory">Finance</a>
+                                    <a href="#" class="post-catagory">{{$item->kategori->kategori}}</a>
                                     <div class="post-meta">
-                                        <a href="\berita\{{$item->id_berita}}\baca" class="post-title">
+                                        <a href="\berita\{{$item->judul_seo}}\baca" class="post-title">
                                             <h6>{{$item->judul_berita}}</h6>
                                         </a>
                                         <!-- Post Like & Post Comment -->

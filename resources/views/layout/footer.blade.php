@@ -128,6 +128,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <!-- ##### All Javascript Files ##### -->
     <!-- jQuery-2.2.4 js -->
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v5.0"></script>
     <script src="{{url('assets/js/jquery/jquery-2.2.4.min.js')}}"></script>
     <!-- Popper js -->
     <script src="{{url('assets/js/bootstrap/popper.min.js')}}"></script>

@@ -43,24 +43,17 @@
                             </div>
                         </div>
 
-                        <!-- About Author -->
-                        <div class="blog-post-author d-flex">
-                            <div class="author-thumbnail">
-                                <img src="img/bg-img/32.jpg" alt="">
-                            </div>
-                            <div class="author-info">
-                                <a href="#" class="author-name">James Smith, <span>The Author</span></a>
-                                <p>Donec turpis erat, scelerisque id euismod sit amet, fermentum vel dolor. Nulla facilisi. Sed pellen tesque lectus et accu msan aliquam. Fusce lobortis cursus quam, id mattis sapien.</p>
-                            </div>
-                        </div>
-
                         <div class="pager d-flex align-items-center justify-content-between">
-                            <div class="prev">
-                                <a href="#" class="active"><i class="fa fa-angle-left"></i> previous</a>
+                            @if(count($prev)>0)
+							<div class="prev">
+                                <a href="{{url('/berita/'.$prev[0]->judul_seo.'/baca')}}"><i class="fa fa-angle-left"></i> previous</a>
                             </div>
+							@endif
+							@if(count($next)>0)
                             <div class="next">
-                                <a href="#">Next <i class="fa fa-angle-right"></i></a>
+                                <a href="{{url('/berita/'.$next[0]->judul_seo.'/baca')}}">Next <i class="fa fa-angle-right"></i></a>
                             </div>
+							@endif
                         </div>
 
                         <div class="section-heading">
@@ -277,6 +270,5 @@
         </div>
     </div>
     <!-- ##### Blog Area End ##### -->
-	<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v5.0"></script>
+	
 	@include('layout.footer')
