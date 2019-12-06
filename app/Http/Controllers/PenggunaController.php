@@ -61,6 +61,10 @@ class PenggunaController extends Controller
 						"status"=>$request->aktivasi,
 						"urutan"=>$request->urutan);
 		$tmbh_menu = Menu::create($menu);
+		if($tmbh_menu){
+			return redirect('/admin/menu')->with(['info'=>'Berhasil Tambah Menu']);
+		}
+		return redirect('/admin/menu')->with(['error'=>'Tambah Menu Tidak Berhasil']);
 	}
 
 	public function tambah_berita(){

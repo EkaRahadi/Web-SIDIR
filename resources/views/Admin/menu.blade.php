@@ -1,6 +1,16 @@
 @extends('Admin.layouts.app')
 @section('title', 'MENU | DISNAKER INDRAMAYU')
 @section('content')
+					@if ($message = Session::get('info'))
+						<div class="alert alert-info" data-dismiss="alert">
+							<strong>Info :</strong> {{ $message }}
+						</div>
+					@endif
+					@if ($message = Session::get('error'))
+						<div class="alert alert-danger" data-dismiss="alert">
+							<strong>Error :</strong> {{ $message }}
+						</div>
+					@endif
 <div class="animated fadeIn">
 <div class="card">
         <div class="card-header">  
