@@ -14,7 +14,9 @@
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>Foto</th>
                         <th>Judul</th>
+                        <th>Kategori</th>
                         <th>Dipuplikasikan Oleh</th>
                         <th>Aksi</th>
                     </tr>
@@ -23,7 +25,28 @@
                 </tbody>
             </table>
         </div>
-    </div>           
+    </div> 
+
+	<div class="card">
+        <div class="card-header">  
+            <p align="right">
+             <a href="{{route('tambah_berita')}}" class="btn btn-primary">Tambah Kategori Berita</a>
+                    </p>
+        </div>
+        <div class="card-body">
+            <table id="bootstrap-data-table1" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Kategori</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div> 
 </div>
  <!-- Scripts -->
  <script src="{!! asset('assets/assets/js/lib/data-table/datatables.min.js') !!}"></script>
@@ -40,7 +63,7 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-          $('#bootstrap-data-table-export').DataTable();
+          $('#bootstrap-data-table1').DataTable();
       } );
   </script>
 @endsection

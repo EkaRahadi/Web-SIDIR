@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php use \App\Console\Helper; ?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,10 +9,10 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Dinas Tenaga Kerja Kabupaten Indramayu</title>
+    <title>Dinas Ketenagakerjaan Kabupaten Indramayu</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="http://disnaker.indramayukab.go.id/wp-content/uploads/2017/10/cropped-LOGO-INDRAMAYU-192x192.png">
+    <link rel="icon" href="{{url('/assets/images/nav.png')}}">
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="{{url('/assets/style.css')}}">
@@ -29,7 +29,7 @@
                         <div class="top-header-content d-flex align-items-center justify-content-between">
                             <!-- Logo -->
                             <div class="logo">
-                            <a href="#"><img src="{{url('/assets/images/core-img/logo.png')}}" alt="" width="450px"></a>
+                            <a href="#"><img src="{{url('/assets/images/logo-putih.png')}}" alt="" width="450px"></a>
                             </div>
 
                             <!-- Login Search Area -->
@@ -58,7 +58,7 @@
 
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.html"><img src="{{url('/assets/images/core-img/logo.png')}}" alt=""></a>
+                            <a href="index.html"><img src="{{url('/assets/images/logo-putih.png')}}" alt=""></a>
                         </div>
 
                         <!-- Navbar Toggler -->
@@ -76,7 +76,7 @@
 
                             <!-- Nav Start -->
                             <div class="classynav">
-                                {!! \App\Console\Helper::main_menu() !!}
+                                {!! Helper::main_menu() !!}
                             </div>
                             <!-- Nav End -->
                         </div>
@@ -94,34 +94,28 @@
   <!-- Indicators -->
   <center>
   <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
+	@foreach(Helper::slider() as $key=>$item)
+		<li data-target="#myCarousel" data-slide-to="{{$key}}" @if($key==0) class="active" @endif></li>
+	@endforeach
   </ol>
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
-    <div class="item active">
-      <img src="http://disnaker.indramayukab.go.id/wp-content/uploads/2019/10/cropped-spanduk.jpg" alt="Los Angeles">
+  @foreach(Helper::slider() as $key=>$item)
+    <div class="item @if($key==0) active @endif">
+      <img src="{{url('/assets/images/slider/'.$item->foto)}}" alt="{{$item->alt}}" height="30px">
     </div>
-
-    <div class="item">
-      <img src="assets/images/bg-img/17.jpg" alt="Chicago">
-    </div>
-
-    <div class="item">
-      <img src="assets/images/bg-img/17.jpg" alt="New York">
-    </div>
+  @endforeach
   </div>
 
   <!-- Left and right controls -->
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
-    <span class="sr-only">Previous</span>
+    <span class="sr-only">Sebelmunya</span>
   </a>
   <a class="right carousel-control" href="#myCarousel" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
-    <span class="sr-only">Next</span>
+    <span class="sr-only">Selanjutnya</span>
   </a>
 </div></center>
     <div class="hero-area">
@@ -135,23 +129,9 @@
                         </div>
                         <div id="breakingNewsTicker" class="ticker">
                             <ul>
-                                <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-                                <li><a href="#">Welcome to Colorlib Family.</a></li>
-                                <li><a href="#">Nam eu metus sitsit amet, consec!</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Breaking News Widget -->
-                    <div class="breaking-news-area d-flex align-items-center mt-15">
-                        <div class="news-title title2">
-                            <p>Mancanegara</p>
-                        </div>
-                        <div id="internationalTicker" class="ticker">
-                            <ul>
-                                <li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-                                <li><a href="#">Welcome to Colorlib Family.</a></li>
-                                <li><a href="#">Nam eu metus sitsit amet, consec!</a></li>
+							@foreach(Helper::berita_terbaru() as $item)
+                                <li><a href="\berita\{{$item->judul_seo}}\baca">{{$item->judul_berita}}</a></li>
+							@endforeach
                             </ul>
                         </div>
                     </div>
@@ -160,7 +140,7 @@
                 <!-- Hero Add -->
                 <div class="col-12 col-lg-4">
                     <div class="hero-add">
-                        <a href="#"><img src="{{url('assets/images/cropped-spanduk.jpg')}}" width="400px" alt=""></a>
+                        <a href="#"><img src="{{url('assets/images/'.Helper::foto_samping()->foto)}}" width="400px" alt=""></a>
                     </div>
                 </div>
             </div>

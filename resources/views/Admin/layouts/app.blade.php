@@ -53,7 +53,7 @@
                         </ul>
                     </li>
                    
-                   <li>
+                   <li @if( str_replace(url('/'), '', url()->current()) == '/admin/kelola_berita') class="active" @endif>
                         <a href="{{route('kelola_berita')}}" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Kelola Berita</a>
                     </li>
 

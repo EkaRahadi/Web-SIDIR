@@ -1,8 +1,14 @@
 <?php
 namespace App\Console;
+use Illuminate\Support\Facades\Storage;
+use \App\Menu;
+use \App\Berita;
+use \App\Slider;
+
+
 class Helper{
     static function main_menu(){
-        $menu = \App\Menu::where('status', 'a')
+        $menu = Menu::where('status', 'a')
             ->orderBy('urutan')
             ->get();
         $menus = array('items'=>array(), 'parents'=>array());
@@ -47,8 +53,23 @@ class Helper{
     }
 
     static function toParentName($parent){
-        return \app\Menu::findOrfail($parent)->nama_menu;
+        return Menu::findOrfail($parent)->nama_menu;
     }
+	static function berita_terbaru(){ 
+		return Berita::select('judul_berita','judul_seo')
+					 ->where('status', 'YA')
+					 ->take(5)
+					 ->orderBy('id_berita', 'desc')
+					 ->get();
+	}
+	static function foto_samping(){ 
+		try {
+		   return json_decode(Storage::disk('local')->get('foto_samping.json'));
+	  } catch (\Exception $e) {
+		   dd($e);
+	  }
+	}
+	static function slider(){ return Slider::take(5)->orderBy('id', 'desc')->get();}
 	static function judul_seo($text){
             $text = preg_replace('~[^\\pL\d]+~u', '-', $text);
             $text = trim($text, '-');
