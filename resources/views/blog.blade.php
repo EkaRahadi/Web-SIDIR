@@ -117,146 +117,45 @@
                         <!-- Latest Posts Widget -->
                         <div class="latest-posts-widget mb-50">
 
-                            <!-- Single Featured Post -->
-                            <div class="single-blog-post small-featured-post d-flex">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/19.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-catagory">Finance</a>
-                                    <div class="post-meta">
-                                        <a href="#" class="post-title">
-                                            <h6>Pellentesque mattis arcu massa, nec fringilla turpis eleifend id.</h6>
-                                        </a>
-                                        <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Featured Post -->
-                            <div class="single-blog-post small-featured-post d-flex">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/20.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-catagory">Politics</a>
-                                    <div class="post-meta">
-                                        <a href="#" class="post-title">
-                                            <h6>Sed a elit euismod augue semper congue sit amet ac sapien.</h6>
-                                        </a>
-                                        <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Featured Post -->
-                            <div class="single-blog-post small-featured-post d-flex">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/21.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-catagory">Health</a>
-                                    <div class="post-meta">
-                                        <a href="#" class="post-title">
-                                            <h6>Pellentesque mattis arcu massa, nec fringilla turpis eleifend id.</h6>
-                                        </a>
-                                        <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Featured Post -->
-                            <div class="single-blog-post small-featured-post d-flex">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/22.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-catagory">Finance</a>
-                                    <div class="post-meta">
-                                        <a href="#" class="post-title">
-                                            <h6>Augue semper congue sit amet ac sapien. Fusce consequat.</h6>
-                                        </a>
-                                        <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Featured Post -->
-                            <div class="single-blog-post small-featured-post d-flex">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/23.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-catagory">Travel</a>
-                                    <div class="post-meta">
-                                        <a href="#" class="post-title">
-                                            <h6>Pellentesque mattis arcu massa, nec fringilla turpis eleifend id.</h6>
-                                        </a>
-                                        <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Single Featured Post -->
-                            <div class="single-blog-post small-featured-post d-flex">
-                                <div class="post-thumb">
-                                    <a href="#"><img src="img/bg-img/24.jpg" alt=""></a>
-                                </div>
-                                <div class="post-data">
-                                    <a href="#" class="post-catagory">Politics</a>
-                                    <div class="post-meta">
-                                        <a href="#" class="post-title">
-                                            <h6>Augue semper congue sit amet ac sapien. Fusce consequat.</h6>
-                                        </a>
-                                        <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>
-                                    </div>
-                                </div>
-                            </div>
+                            @foreach($news_by_kategori as $item)
+							<div class="single-blog-post small-featured-post d-flex">
+								<div class="post-thumb">
+									<a href="\berita\{{$item->judul_seo}}\baca"><img src="{!! asset('assets/images/berita/'.$item->foto) !!}" alt=""></a>
+								</div>
+								<div class="post-data">
+									<a href="#" class="post-catagory">{{$item->kategori->kategori}}</a>
+									<div class="post-meta">
+										<a href="\berita\{{$item->judul_seo}}\baca" class="post-title">
+											<h6>{{$item->judul_berita}}</h6>
+										</a>
+										<p class="post-date"><span>{{$item->getPublishedAtAttribute($item->created_at)}}</span></p>
+									</div>
+								</div>
+							</div>
+							@endforeach
                         </div>
 
                         <!-- Popular News Widget -->
                         <div class="popular-news-widget mb-50">
-                            <h3>4 Most Popular News</h3>
-
+                            <h3>{{count($news_by_kategori)}} Most Popular News</h3>
+							
                             <!-- Single Popular Blog -->
+							@foreach($news_by_kategori as $key => $item)
                             <div class="single-popular-post">
-                                <a href="#">
-                                    <h6><span>1.</span> Amet, consectetur adipiscing elit. Nam eu metus sit amet odio sodales.</h6>
+                                <a href="\berita\{{$item->judul_seo}}\baca">
+                                    <h6><span>{{++$key}}.</span> {{$item->judul_berita}}</h6>
                                 </a>
-                                <p>April 14, 2018</p>
+                                <p>{{$item->getPublishedAtAttribute($item->created_at)}}</p>
                             </div>
-
-                            <!-- Single Popular Blog -->
-                            <div class="single-popular-post">
-                                <a href="#">
-                                    <h6><span>2.</span> Consectetur adipiscing elit. Nam eu metus sit amet odio sodales placer.</h6>
-                                </a>
-                                <p>April 14, 2018</p>
-                            </div>
-
-                            <!-- Single Popular Blog -->
-                            <div class="single-popular-post">
-                                <a href="#">
-                                    <h6><span>3.</span> Adipiscing elit. Nam eu metus sit amet odio sodales placer. Sed varius leo.</h6>
-                                </a>
-                                <p>April 14, 2018</p>
-                            </div>
-
-                            <!-- Single Popular Blog -->
-                            <div class="single-popular-post">
-                                <a href="#">
-                                    <h6><span>4.</span> Eu metus sit amet odio sodales placer. Sed varius leo ac...</h6>
-                                </a>
-                                <p>April 14, 2018</p>
-                            </div>
+							@endforeach
                         </div>
 
                         <!-- Newsletter Widget -->
                         <div class="newsletter-widget mb-50">
-                            <h4>Newsletter</h4>
-                            <p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                            <h4>Berlangganan dengan Disnaker</h4>
+                            <p>Dapatkan berita terbaru Dinas Ketenagakerjaan Kabupaten Indramayu</p>
                             <form action="#" method="post">
-                                <input type="text" name="text" placeholder="Name">
+                                <input type="text" name="text" placeholder="Nama">
                                 <input type="email" name="email" placeholder="Email">
                                 <button type="submit" class="btn w-100">Subscribe</button>
                             </form>

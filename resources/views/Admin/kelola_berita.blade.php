@@ -1,10 +1,20 @@
 @extends('Admin.layouts.app')
 @section('title', 'HALAMAN | DISNAKER INDRAMAYU')
 @section('content')
-
+					@if ($message = Session::get('info'))
+						<div class="alert alert-info" data-dismiss="alert">
+							<strong>Info :</strong> {{ $message }}
+						</div>
+					@endif
+					@if ($message = Session::get('error'))
+						<div class="alert alert-danger" data-dismiss="alert">
+							<strong>Error :</strong> {{ $message }}
+						</div>
+					@endif
 <div class="animated fadeIn">
 <div class="card">
         <div class="card-header">  
+		<h3>Berita</h3>
             <p align="right">
              <a href="{{route('tambah_berita')}}" class="btn btn-primary">Tambah Berita</a>
                     </p>
@@ -22,13 +32,24 @@
                     </tr>
                 </thead>
                 <tbody>
+					@foreach($berita as $key=>$item)
+					<tr>
+						<td>{{++$key}}</td>
+						<td><img src="{!! asset('assets/images/berita/'.$item->foto) !!}" width="100px"></td>
+						<td>{{$item->judul_berita}}</td>
+						<td>{{$item->kategori->kategori}}</td>
+						<td>{{$item->post->nama}}</td>
+						<td><a href="#"><i class="fa fa-trash"></i></a>  <a href="#"><i class="fa fa-edit"></i></a>  <a href="#"><i class="fa fa-check-circle"></i></a></td>
+					</tr>
+					@endforeach
                 </tbody>
             </table>
         </div>
     </div> 
 
 	<div class="card">
-        <div class="card-header">  
+        <div class="card-header"> 
+			<h3>Kategori Berita</h3>
             <p align="right">
              <a href="{{route('tambah_berita')}}" class="btn btn-primary">Tambah Kategori Berita</a>
                     </p>
@@ -43,6 +64,13 @@
                     </tr>
                 </thead>
                 <tbody>
+					@foreach($KategoriBerita as $key=>$item)
+					<tr>
+						<td>{{++$key}}</td>
+						<td>{{$item->kategori}}</td>
+						<td><a href="#"><i class="fa fa-trash"></i></a>  <a href="#"><i class="fa fa-edit"></i></a></td>
+					</tr>
+					@endforeach
                 </tbody>
             </table>
         </div>

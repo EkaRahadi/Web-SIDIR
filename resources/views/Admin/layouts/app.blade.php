@@ -10,8 +10,8 @@
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="http://disnaker.indramayukab.go.id/wp-content/uploads/2017/10/cropped-LOGO-INDRAMAYU-192x192.png">
-    <link rel="shortcut icon" href="http://disnaker.indramayukab.go.id/wp-content/uploads/2017/10/cropped-LOGO-INDRAMAYU-192x192.png">
+    <link rel="apple-touch-icon" href="{{url('/assets/images/nav.png')}}">
+    <link rel="shortcut icon" href="{{url('/assets/images/nav.png')}}">
     
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
@@ -225,6 +225,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
+	<script src="{{url('assets/vendor/ckeditor/ckeditor.js')}}"></script>
     <script src="{{url('assets/assets/js/init/fullcalendar-init.js')}}"></script>
+	<script type="text/javascript">
+   //Script untuk mengaktifkan ckeditor
+      CKEDITOR.replace( 'isi_berita',{height: 300} );
+    </script>
 </body>
 </html>

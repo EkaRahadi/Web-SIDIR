@@ -24,6 +24,8 @@ class LoginController extends Controller
 		$auth = auth()->guard('users');
 		if ($auth->attempt($attempts, (bool) $request->remember_me)) {
 			$user = Pengguna::where('username', $request->username)->first();
+			session_start();
+			$_SESSION['logged_in'] = md5("DISNAKER-INDRAMAYU");
 			$request->session()->put('logged_in', [$user->id_pengguna, $user->level]);
             return redirect()->intended('admin');
         }
@@ -32,6 +34,8 @@ class LoginController extends Controller
 	
 	public function logout(){
 		\Session::forget('logged_in');
+		session_start();
+		unset($_SESSION['logged_in']);
 		return redirect('login')->with(['info'=>'Logout Berhasil']);
 	}
 }

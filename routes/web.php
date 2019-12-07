@@ -28,6 +28,7 @@ Route::middleware('cek-login')->group(function(){
         Route::get('/kelola_berita', 'PenggunaController@kelola_berita')->name('kelola_berita');
         Route::post('/proses_tambah_menu', 'PenggunaController@proses_tambah_menu');
         Route::get('/tambah_berita', 'PenggunaController@tambah_berita')->name('tambah_berita');
+        Route::post('/proses_tambah_berita', 'PenggunaController@proses_tambah_berita');
 
     });
 });
