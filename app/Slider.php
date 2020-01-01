@@ -8,6 +8,6 @@ class Slider extends Model
 {
 	protected $table = 'tb_slider';
 	protected $fillable = [ 
-		'foto'
+		'foto', 'alt'
 	];
 }

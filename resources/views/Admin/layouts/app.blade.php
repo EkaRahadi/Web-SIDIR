@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
     <link rel="stylesheet" href="{{url('assests/assets/css/cs-skin-elastic.css')}}">
+    <link rel="stylesheet" href="{{url('assets/vendor/sweetalert/sweetalert.css')}}">
     <link rel="stylesheet" href="{{url('assets/assets/css/style.css')}}">
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
     <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
@@ -45,9 +46,10 @@
                         <a href="{{route('data_pengguna')}}"> <i class="menu-icon fa fa-users"></i>Data Pengguna</a>
                         
                     </li>
-                    <li class="menu-item-has-children dropdown  @if( str_replace(url('/'), '', url()->current()) == '/admin/halaman' || str_replace(url('/'), '', url()->current()) == '/admin/menu') active @endif">
+                    <li class="menu-item-has-children dropdown  @if(str_replace(url('/'), '', url()->current()) == '/admin/homepage' ||  str_replace(url('/'), '', url()->current()) == '/admin/halaman' || str_replace(url('/'), '', url()->current()) == '/admin/menu') active @endif">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Konfigurasi Aplikasi</a>
                         <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-pagelines"></i><a href="/admin/homepage">Kelola Halaman Utama</a></li>
                             <li><i class="fa fa-pagelines"></i><a href="/admin/halaman">Kelola Halaman</a></li>
                             <li><i class="fa fa-bars"></i><a href="/admin/menu">Kelola Menu</a></li>
                         </ul>
@@ -149,13 +151,13 @@
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+                            <a class="nav-link" href="{{route('my_profil')}}"><i class="fa fa- user"></i>My Profile</a>
 
                             <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
 
                             <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
 
-                            <a class="nav-link" href="logout"><i class="fa fa-power -off"></i>Logout</a>
+                            <a class="nav-link" href="/logout"><i class="fa fa-power -off"></i>Logout</a>
                         </div>
                     </div>
 
@@ -189,6 +191,22 @@
 
         <div class="content">
             <!-- Animated -->
+			
+					@if ($message = Session::get('info'))
+						<div class="alert alert-info" data-dismiss="alert">
+							<strong>Info :</strong> {{ $message }}
+						</div>
+					@endif
+					@if ($message = Session::get('error'))
+						<div class="alert alert-danger" data-dismiss="alert">
+							<strong>Error :</strong> {{ $message }}
+						</div>
+					@endif
+					@if ($message = Session::get('warning'))
+						<div class="alert alert-warning" data-dismiss="alert">
+							<strong>Warning :</strong> {{ $message }}
+						</div>
+					@endif
            @yield('content')
             <!-- .animated -->
         </div>
@@ -225,11 +243,20 @@
 
     <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
+	<script src="{{url('assets/js/main-disnaker.js')}}" type="text/javascript"></script>
 	<script src="{{url('assets/vendor/ckeditor/ckeditor.js')}}"></script>
     <script src="{{url('assets/assets/js/init/fullcalendar-init.js')}}"></script>
+	<script src="{{url('assets/vendor/sweetalert/sweetalert.js')}}"></script>
 	<script type="text/javascript">
    //Script untuk mengaktifkan ckeditor
-      CKEDITOR.replace( 'isi_berita',{height: 300} );
+      CKEDITOR.replace( 'isi_berita', {
+			filebrowserUploadUrl: "{{route('ckeditor_upload', ['_token' => csrf_token() ])}}",
+			filebrowserUploadMethod: 'form'
+	  });
+	  CKEDITOR.replace( 'isi_halaman', {
+			filebrowserUploadUrl: "{{route('ckeditor_upload', ['_token' => csrf_token() ])}}",
+			filebrowserUploadMethod: 'form'
+	  });
     </script>
 </body>
 </html>

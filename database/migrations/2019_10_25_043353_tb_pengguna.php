@@ -21,6 +21,7 @@ class TbPengguna extends Migration
         $table->string('username', 50);
         $table->string('password',255);
 		$table->string('alamat');
+		$table->char('foto', 50)->nullable();
 		$table->string('nope');
 		$table->string('email');
 		$table->integer('level');

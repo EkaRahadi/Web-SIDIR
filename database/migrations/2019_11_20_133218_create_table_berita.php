@@ -26,9 +26,9 @@ class CreateTableBerita extends Migration
             $table->char('judul_seo', 100);
             $table->integer('id_kategori')->unsigned();
 			$table->foreign('id_kategori')->references('id_kategori')->on('tb_kategori_berita')->onDelete('cascade');
-            $table->text('isi_berita');
-            $table->char('foto', 100);
-            $table->char('yt', 100);
+            $table->text('isi_berita')->nullable();
+            $table->char('foto', 100)->nullable();
+            $table->char('yt', 100)->nullable();
             $table->enum('status',['YA', 'TIDAK']);
             $table->integer('views');
             $table->integer('post_by');

@@ -1,16 +1,6 @@
 @extends('Admin.layouts.app')
-@section('title', 'HALAMAN | DISNAKER INDRAMAYU')
-@section('content')
-					@if ($message = Session::get('info'))
-						<div class="alert alert-info" data-dismiss="alert">
-							<strong>Info :</strong> {{ $message }}
-						</div>
-					@endif
-					@if ($message = Session::get('error'))
-						<div class="alert alert-danger" data-dismiss="alert">
-							<strong>Error :</strong> {{ $message }}
-						</div>
-					@endif
+@section('title', 'BERITA | DISNAKER INDRAMAYU')
+@section('content')					
 <div class="animated fadeIn">
 <div class="card">
         <div class="card-header">  
@@ -27,7 +17,8 @@
                         <th>Foto</th>
                         <th>Judul</th>
                         <th>Kategori</th>
-                        <th>Dipuplikasikan Oleh</th>
+                        <th>Diposting Oleh</th>
+                        <th>Status</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -35,23 +26,43 @@
 					@foreach($berita as $key=>$item)
 					<tr>
 						<td>{{++$key}}</td>
-						<td><img src="{!! asset('assets/images/berita/'.$item->foto) !!}" width="100px"></td>
+						@if(trim($item->foto) == "")
+							<td><img src="{!! asset('assets/images/berita/disnaker-no-images.png') !!}" width="100px"></td>
+						@else
+							<td><img src="{!! asset('assets/images/berita/'.$item->foto) !!}" width="100px"></td>
+						@endif
 						<td>{{$item->judul_berita}}</td>
 						<td>{{$item->kategori->kategori}}</td>
 						<td>{{$item->post->nama}}</td>
-						<td><a href="#"><i class="fa fa-trash"></i></a>  <a href="#"><i class="fa fa-edit"></i></a>  <a href="#"><i class="fa fa-check-circle"></i></a></td>
+						@if($item->status == "YA")
+						<td><i>Dipuplikasikan</i></td>
+						@else
+						<td><i>Disembunyikan</i></td>
+						@endif
+						<td>
+						<button onClick="hapus('{{$item->id_berita}}')"><i class="fa fa-trash"></i></button>  
+						<button onClick="edit_confirm('{{$item->id_berita}}')"><i class="fa fa-edit"></i></button>  
+						@if($item->status == "YA")
+						<button onClick="aktifasi_berita(0, '{{$item->id_berita}}')"><i class="fa fa-times"></i></a></td>
+						@else
+						<button onClick="aktifasi_berita(1, '{{$item->id_berita}}')"><i class="fa fa-check-circle"></i></a></td>
+						@endif
 					</tr>
 					@endforeach
                 </tbody>
             </table>
         </div>
     </div> 
-
+					@if ($message = Session::get('info_kat'))
+						<div class="alert alert-info" data-dismiss="alert">
+							<strong>Info :</strong> {{ $message }}
+						</div>
+					@endif
 	<div class="card">
         <div class="card-header"> 
 			<h3>Kategori Berita</h3>
             <p align="right">
-             <a href="{{route('tambah_berita')}}" class="btn btn-primary">Tambah Kategori Berita</a>
+             <button onClick="tambah_kategori(0,'')" class="btn btn-primary">Tambah Kategori Berita</button>
                     </p>
         </div>
         <div class="card-body">
@@ -68,7 +79,10 @@
 					<tr>
 						<td>{{++$key}}</td>
 						<td>{{$item->kategori}}</td>
-						<td><a href="#"><i class="fa fa-trash"></i></a>  <a href="#"><i class="fa fa-edit"></i></a></td>
+						<td>
+						<button type="button" onClick="kategori_berita('{{$item->id_kategori}}', false)"><i class="fa fa-trash"></i></button>  
+						<button type="button" onClick="tambah_kategori({{$item->id_kategori}},'{{$item->kategori}}')"><i class="fa fa-edit"></i></button>
+						</td>
 					</tr>
 					@endforeach
                 </tbody>
@@ -93,5 +107,6 @@
         $(document).ready(function() {
           $('#bootstrap-data-table1').DataTable();
       } );
+	  
   </script>
 @endsection

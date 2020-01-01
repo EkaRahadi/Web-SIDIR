@@ -22,4 +22,7 @@ class Berita extends Model
 		$date = new \Carbon\Carbon($date);
 		return $date->toDateTimeString();
 	}
+	public function toYtId($link){
+		return explode("v=", $link)[1];
+	}	
 }

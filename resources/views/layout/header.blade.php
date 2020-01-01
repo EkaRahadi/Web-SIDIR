@@ -9,7 +9,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Dinas Ketenagakerjaan Kabupaten Indramayu</title>
+    <title>Dinas Tenaga Kerja Kabupaten Indramayu</title>
 
     <!-- Favicon -->
     <link rel="icon" href="{{url('/assets/images/nav.png')}}">
@@ -37,7 +37,8 @@
                                
                                 <!-- Search Form -->
                                 <div class="search-form">
-                                    <form action="#" method="post">
+                                    <form action="/berita/cari" method="GET">
+										<input type="hidden" value="cari" name="typ">
                                         <input type="search" name="search" class="form-control" placeholder="Search">
                                         <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                     </form>
@@ -140,7 +141,7 @@
                 <!-- Hero Add -->
                 <div class="col-12 col-lg-4">
                     <div class="hero-add">
-                        <a href="#"><img src="{{url('assets/images/'.Helper::foto_samping()->foto)}}" width="400px" alt=""></a>
+                        <a href="#"><img src="{{url('assets/images/foto-samping/'.Helper::foto_samping()->foto)}}" width="400px" alt=""></a>
                     </div>
                 </div>
             </div>

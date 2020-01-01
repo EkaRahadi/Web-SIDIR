@@ -15,7 +15,7 @@ class Pengguna extends Authenticatable
         'password', 'remember_token',
     ];
 	protected $fillable = [ 
-		'nama', 'username', 'alamat', 'nope', 'email', 'level'
+		'no_id', 'nama', 'username', 'password' ,'alamat', 'foto', 'nope', 'email', 'level'
 	];
 	
 	public function setPasswordAttribute($value)

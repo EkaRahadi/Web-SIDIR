@@ -19,7 +19,7 @@ class CreateTableMenu extends Migration
             $table->string('nama_menu', 50);
             $table->string('link', 50);
             $table->enum('status',['a', 'na'])->default('na');
-            $table->integer('urutan');
+            $table->integer('urutan')->default(0);
             $table->timestamps();
         });
     }

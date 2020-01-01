@@ -1,16 +1,6 @@
 @extends('Admin.layouts.app')
 @section('title', 'MENU | DISNAKER INDRAMAYU')
 @section('content')
-					@if ($message = Session::get('info'))
-						<div class="alert alert-info" data-dismiss="alert">
-							<strong>Info :</strong> {{ $message }}
-						</div>
-					@endif
-					@if ($message = Session::get('error'))
-						<div class="alert alert-danger" data-dismiss="alert">
-							<strong>Error :</strong> {{ $message }}
-						</div>
-					@endif
 <div class="animated fadeIn">
 <div class="card">
         <div class="card-header">  
@@ -38,7 +28,15 @@
                             @if($item->parent == 0)Menu Utama @else {{\App\Console\Helper::toParentName($item->parent)}} @endif
                         </td>
                         <td>{{$item->link}}</td>
-                        <td><a href="#"><i class="fa fa-trash"></i></a>  <a href="#"><i class="fa fa-edit"></i></a>  <a href="#"><i class="fa fa-check-circle"></i></a></td>
+                        <td>
+							<button class="btn btn-link" onClick="f(3, {{$item->id_menu}})" title="Hapus"><i class="fa fa-trash"></i></button>
+							<a class="btn btn-link" href="{{route('edit_menu', $item->id_menu)}}" title="Edit Menu"><i class="fa fa-edit"></i></a>
+							@if($item->status=="a") 
+								<button type="button" class="btn btn-link" onClick="f(1, {{$item->id_menu}})" title="Sembunyikan" ><i class="fa fa-check-circle"></i></button> 
+							@else 
+								<button type="button" class="btn btn-link" onClick="f(2, {{$item->id_menu}})" title="Tampilkan" ><i class="fa fa-times"></i></button> 
+							@endif
+						</td>
                     </tr>
                     @endforeach
                    
@@ -64,5 +62,6 @@
         $(document).ready(function() {
           $('#bootstrap-data-table-export').DataTable();
       } );
+	  
   </script>
 @endsection

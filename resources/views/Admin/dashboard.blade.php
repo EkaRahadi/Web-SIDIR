@@ -83,7 +83,44 @@
                             </div>
                         </div>
                     </div>
+					<div class="col-lg-10">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="mb-3">Statistik Pengunjung</h4>
+                                <canvas id="statistikChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             
 </div>
+<script src="{{url('assets/js/Chart.js')}}" type="text/javascript"></script>
+<script>
+
+		var ctx = document.getElementById("statistikChart").getContext('2d');
+		var label_data = [@foreach($label_data_statistik as $r)"{{$r}}",@endforeach]
+		var data = [@foreach($data_statistik as $r){{$r}},@endforeach]	
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: label_data,
+				datasets: [{
+					label: '# Pengunjung Disnaker',
+					data: data,
+					backgroundColor:'rgba(54, 162, 235, 0.2)',
+					borderColor: 'rgba(54, 162, 235, 1)',
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+	</script>
 @endsection
