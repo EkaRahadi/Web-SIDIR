@@ -13,7 +13,7 @@ class MainController extends Controller
 {
 	function __construct(Request $request){
 		if(!isset($_COOKIE['VISITOR'])){
-			//setcookie('VISITOR', Helper::_user_agen()['name'], time()+60*60*24);
+			setcookie('VISITOR', Helper::_user_agen()['name'], time()+60*60*24);
 			Visitor::create([
 							"ip" 		=> $request->ip(),
 							"os" 		=> Helper::_user_agen()['platform'],
