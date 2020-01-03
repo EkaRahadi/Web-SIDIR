@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use \App\Slider;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
-
+use \App\Console\Helper;
 class AdminHPController extends Controller
 {
     //
@@ -16,7 +16,9 @@ class AdminHPController extends Controller
 		$data['sub'] = "
 						<li><a href='/admin/halaman'>Halaman Utama</a></li>
 						";
-		$data['foto_samping'] = json_decode(Storage::disk('local')->get('foto_samping.json'))->foto;
+		$data['foto_samping']=  "";
+		if(Storage::disk('local')->exists('foto_samping.json'))
+			$data['foto_samping'] = json_decode(Storage::disk('local')->get('foto_samping.json'))->foto;
 		$data['slider'] = Slider::all();		
 		return view('Admin.kelola_homepage', $data);
 	

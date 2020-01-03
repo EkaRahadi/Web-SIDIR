@@ -137,13 +137,14 @@
                         </div>
                     </div>
                 </div>
-
+			@if(Helper::foto_samping()->foto)
                 <!-- Hero Add -->
                 <div class="col-12 col-lg-4">
                     <div class="hero-add">
                         <a href="#"><img src="{{url('assets/images/foto-samping/'.Helper::foto_samping()->foto)}}" width="400px" alt=""></a>
                     </div>
                 </div>
+				@endif
             </div>
         </div>
     </div>

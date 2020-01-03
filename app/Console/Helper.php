@@ -63,11 +63,14 @@ class Helper{
 					 ->get();
 	}
 	static function foto_samping(){ 
+	if(Storage::disk('local')->exists('foto_samping.json'))
 		try {
 		   return json_decode(Storage::disk('local')->get('foto_samping.json'));
 	  } catch (\Exception $e) {
 		   dd($e);
 	  }
+	  else
+		  Storage::put('foto_samping.json', json_encode(["foto" => ""]));
 	}
 	static function slider(){ return Slider::take(5)->orderBy('id', 'desc')->get();}
 	static function judul_seo($text){
