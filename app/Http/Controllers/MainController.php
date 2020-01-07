@@ -41,7 +41,7 @@ class MainController extends Controller
 		}else{
 			$c = "YA";
 			if($request->search == NULL) $c = "YAIN";
-			$data['card_header'] = "Hasil Pencarian : ".$request->search.$request->ip();
+			$data['card_header'] = "Hasil Pencarian : ".$request->search;
 			$data['berita'] = Berita::where('judul_berita',  'like', '%'.$request->search.'%')->where('status', $c)->paginate(5);
 		}
 		$data['berita']->withPath(url()->current()."/?typ=".$request->typ."&search=".$request->search);

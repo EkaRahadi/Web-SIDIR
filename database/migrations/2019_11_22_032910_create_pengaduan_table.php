@@ -15,9 +15,11 @@ class CreatePengaduanTable extends Migration
     {
         Schema::create('pengaduan', function (Blueprint $table) {
             $table->bigIncrements('id_pengaduan');
-            $table->text('aduan');
-            //$table->foreign('id_status')->references('id_status')->on('status');
-            //$table->foreign('id_pengunjung')->references('id_pengunjung')->on('pengunjung');
+            $table->char('nama',50);
+            $table->char('nope',20);
+            $table->text('isi_pengaduan')->nullable();
+            $table->char('kode_pengaduan');
+            $table->enum('dilihat', ['SUDAH', 'BELUM']);
             $table->timestamps();
         });
     }

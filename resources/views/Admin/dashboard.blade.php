@@ -75,7 +75,7 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">349</span></div>
+                                            <div class="stat-text"><span class="count">0</span></div>
                                             <div class="stat-heading">Pelaporan Warga</div>
                                         </div>
                                     </div>

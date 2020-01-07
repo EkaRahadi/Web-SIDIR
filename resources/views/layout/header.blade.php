@@ -137,7 +137,7 @@
                         </div>
                     </div>
                 </div>
-			@if(Helper::foto_samping()->foto)
+			@if(isset(Helper::foto_samping()->foto))
                 <!-- Hero Add -->
                 <div class="col-12 col-lg-4">
                     <div class="hero-add">

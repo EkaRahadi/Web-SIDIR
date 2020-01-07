@@ -43,7 +43,7 @@
 
                         <!-- Latest Posts Widget -->
                         <div class="latest-posts-widget mb-50">
-
+						@if(isset($news_by_kategori))
                             @foreach($news_by_kategori as $item)
 							<div class="single-blog-post small-featured-post d-flex">
 								<div class="post-thumb">
@@ -64,6 +64,7 @@
 								</div>
 							</div>
 							@endforeach
+							@endif
                         </div>
                         <div class="popular-news-widget mb-50">
                             <h3>{{count($populer)}} Most Popular News</h3>

@@ -4,9 +4,13 @@ use Illuminate\Support\Facades\Storage;
 use \App\Menu;
 use \App\Berita;
 use \App\Slider;
+use \App\Pengaduan;
 
 
 class Helper{
+	static function get_profile(){
+		return \App\Pengguna::select("nama","foto")->where("id_pengguna",\Session::get('logged_in'))->get()[0];
+	}
     static function main_menu(){
         $menu = Menu::where('status', 'a')
             ->orderBy('urutan')
@@ -177,6 +181,9 @@ class Helper{
 			'pattern'   => $pattern
 		);
 		//retrun $bname;
+	}
+	static function message(){
+		return Pengaduan::all();
 	}
 }
 ?>

@@ -16,10 +16,10 @@ class BeritaController extends Controller
 		$data['sub'] = "
 						<li><a href='/admin/kelola_berita'>Kelola Berita</a></li>
 						";
-		$data['berita']	= Berita::all(); 
+		$data['berita']	= Berita::where('post_by',\Session::get('logged_in')[0])->get(); 
+			if(\Session::get('logged_in')[1]==1) $data['berita'] = Berita::all();
 		$data['KategoriBerita']	= Kategori::all(); 
 		return view('Admin.kelola_berita', $data);
-	
 	}
 	public function tambah_berita(){
 		$data['judul'] = "Tambah Berita";

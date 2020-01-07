@@ -16,6 +16,9 @@ Route::get('/berita', function(){return redirect('/');});
 Route::get('/berita/{seo}/baca', 'MainController@read_berita');
 Route::get('/berita/cari', 'MainController@search_berita');
 Route::get('/halaman/{seo}', 'MainController@read_halaman');
+Route::get('/pengaduan', 'PengaduanController@index');
+Route::post('/pengaduan/submit', 'PengaduanController@submit')->name('submit_pengaduan');
+Route::get('/refreshcaptcha', 'PengaduanController@refreshCaptcha');
 
 Route::get('/login', 'LoginController@index')->name('login.form');
 Route::post('/attempt', 'LoginController@attempt')->name('login.attempt');
